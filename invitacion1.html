@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: black; /* evita bordes blancos */
+}
+
+/* CONTENEDOR */
+.fondo {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
+
+/* IMAGEN */
+.fondo img {
+    width: 100%;
+    display: block;
+}
+
+/* BOTONES (NO TOCAR) */
+.boton {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    padding: 14px;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 36px;
+    text-decoration: none;
+}
+
+/* CONFIRMAR */
+.confirmar {
+    top: 91%;
+    background: #d4b06a;
+    color: black;
+}
+
+/* NO ASISTIR */
+.no {
+    top: 94%;
+    height: 60px;
+    background: #6b6b6b;
+    color: white;
+    margin-top: 30px;
+}
+
+/* ========================= */
+/* 📍 UBICACIONES PRO */
+/* ========================= */
+
+.mapa1, .mapa2, .mapa3 {
+    position: absolute;
+    transition: transform 0.3s ease;
+}
+
+/* HOVER */
+.mapa1:hover, .mapa2:hover, .mapa3:hover {
+    transform: scale(1.1);
+}
+
+/* UNION CIVIL */
+.mapa1 {
+    top: 37%;
+    left: 69%;
+    width: 15%;
+    height: 40px;
+
+    transform: translate(0px, 30px);
+    background: rgba(255,0,0,0.3); /* quitar luego */
+}
+
+/* UNION RELIGIOSA */
+.mapa2 {
+    top: 38%;
+    left: 81%;
+    width: 15%;
+    height: 40px;
+
+    transform: translate(0px, 25px);
+    background: rgba(0,255,0,0.3);
+}
+
+/* RECEPCION */
+.mapa3 {
+    top: 39%;
+    left: 81%;
+    width: 15%;
+    height: 40px;
+
+    transform: translate(0px, 16px);
+    background: rgba(0,0,255,0.3);
+}
+
+/* 📱 AJUSTE CELULAR */
+@media (max-width: 480px) {
+
+    .boton {
+        font-size: 18px;
+        width: 75%;
+        padding: 12px;
+    }
+
+    .confirmar {
+        top: 90%;
+    }
+
+    .no {
+        top: 95%;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 MUSICA -->
+<audio id="musica" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+let musica = document.getElementById("musica");
+
+function iniciarMusica() {
+    musica.volume = 0;
+
+    musica.play().then(() => {
+        let subir = setInterval(() => {
+            if (musica.volume < 1) {
+                musica.volume += 0.05;
+            } else {
+                clearInterval(subir);
+            }
+        }, 200);
+    }).catch(() => {});
+}
+
+document.addEventListener("click", iniciarMusica, { once: true });
+
+window.addEventListener("pageshow", () => {
+    musica.play().catch(() => {});
+});
+</script>
+
+<div class="fondo">
+
+    <!-- 🖼 IMAGEN -->
+    <img src="img/fondo.png">
+
+    <!-- 📍 UBICACIONES -->
+    <a class="mapa1" href="https://maps.app.goo.gl/abc123" target="_blank"></a>
+    <a class="mapa2" href="https://maps.app.goo.gl/def456" target="_blank"></a>
+    <a class="mapa3" href="https://maps.app.goo.gl/ghi789" target="_blank"></a>
+
+    <!-- ✅ CONFIRMAR -->
+    <a class="boton confirmar"
+       href="https://wa.me/59179400402?text=Confirmo asistencia a la boda de Valquiria y David">
+        Confirmar Asistencia
+    </a>
+
+    <!-- ❌ NO -->
+    <a class="boton no"
+       href="https://wa.me/59179400402?text=No podré asistir a la boda">
+        No asistiré
+    </a>
+
+</div>
+
+</body>
+</html>
