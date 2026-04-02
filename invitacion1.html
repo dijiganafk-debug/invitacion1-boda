@@ -9,7 +9,7 @@ html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    background: black; /* evita bordes blancos */
+    background: black;
 }
 
 /* CONTENEDOR */
@@ -26,7 +26,7 @@ html, body {
     display: block;
 }
 
-/* BOTONES (NO TOCAR) */
+/* BOTONES */
 .boton {
     position: absolute;
     left: 50%;
@@ -35,28 +35,28 @@ html, body {
     padding: 14px;
     border-radius: 25px;
     text-align: center;
-    font-size: 36px;
+    font-size: 28px;
     text-decoration: none;
 }
 
-/* CONFIRMAR */
+/* ✅ CONFIRMAR (AJUSTADO EXACTO) */
 .confirmar {
     top: 91%;
     background: #d4b06a;
     color: black;
+    height: 60px;
 }
 
-/* NO ASISTIR */
+/* ❌ NO ASISTIR (AJUSTADO EXACTO) */
 .no {
-    top: 94%;
-    height: 60px;
+    top: 94.5%;
+    height: 65px;
     background: #6b6b6b;
     color: white;
-    margin-top: 30px;
 }
 
 /* ========================= */
-/* 📍 UBICACIONES PRO */
+/* 📍 UBICACIONES */
 /* ========================= */
 
 .mapa1, .mapa2, .mapa3 {
@@ -64,7 +64,6 @@ html, body {
     transition: transform 0.3s ease;
 }
 
-/* HOVER */
 .mapa1:hover, .mapa2:hover, .mapa3:hover {
     transform: scale(1.1);
 }
@@ -75,20 +74,16 @@ html, body {
     left: 69%;
     width: 15%;
     height: 40px;
-
-    transform: translate(0px, 30px);
-    background: rgba(255,0,0,0.3); /* quitar luego */
+    transform: translateY(30px);
 }
 
-/* UNION RELIGIOSA */
+/* RELIGIOSA */
 .mapa2 {
     top: 38%;
     left: 81%;
     width: 15%;
     height: 40px;
-
-    transform: translate(0px, 25px);
-    background: rgba(0,255,0,0.3);
+    transform: translateY(25px);
 }
 
 /* RECEPCION */
@@ -97,9 +92,7 @@ html, body {
     left: 81%;
     width: 15%;
     height: 40px;
-
-    transform: translate(0px, 16px);
-    background: rgba(0,0,255,0.3);
+    transform: translateY(16px);
 }
 
 /* 📱 AJUSTE CELULAR */
@@ -112,11 +105,11 @@ html, body {
     }
 
     .confirmar {
-        top: 90%;
+        top: 88%;
     }
 
     .no {
-        top: 95%;
+        top: 93%;
     }
 }
 
